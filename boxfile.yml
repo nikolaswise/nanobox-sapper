@@ -1,0 +1,11 @@
+run.config:
+  engine: nodejs
+  engine.config:
+    dep_manager: npm
+  extra_steps:
+    - npm install
+    - npm run build
+# add a web component and give it a "start" command
+web.main:
+  start:
+    node: npm run production
