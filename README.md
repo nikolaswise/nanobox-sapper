@@ -8,3 +8,7 @@
 $ npm install
 $ npm start
 ```
+
+## Next
+
+A user subscription page with user metadata

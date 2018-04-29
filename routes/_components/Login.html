@@ -1,0 +1,83 @@
+{{#if user}}
+  <p>{{user.nickname}}</p>
+  <button on:click="set({ state: show})">login</button>
+{{else}}
+  <button on:click="set({ state: show})">login</button>
+{{/if}}
+
+<div class="{{state}}">
+  <p>Magic Link Sign In:</p>
+  <input class="js-email" type="email" placeholder="email">
+  <button on:click="login()">Send Email</button>
+</div>
+
+<script>
+  export default {
+    oncreate () {
+      let user = JSON.parse(localStorage.user)
+      if (user) {
+        this.set({user: user})
+      }
+
+      var webAuth = new auth0.WebAuth({
+        clientID: 'aSX04KlTPtCsWcKIKSj-F7I8fXeXLGnM',
+        domain: 'department.auth0.com',
+        redirectUri: 'http://paperclub.local:8080',
+        responseType: 'token',
+        scope: 'openid profile'
+      });
+
+      if(window.location.hash){
+        webAuth.parseHash(window.location.hash, function(err, authResult) {
+          if (err) {
+            return console.log(err);
+          } else if (authResult){
+            localStorage.setItem('accessToken', authResult.accessToken);
+            console.log(authResult.accessToken)
+
+            webAuth.client.userInfo(authResult.accessToken, function(err, user) {
+              if (err){
+                console.log('err',err);
+                alert('There was an error retrieving your profile: ' + err.message);
+              } else {
+                console.log(user)
+                localStorage.setItem('user', JSON.stringify(user));
+              }
+            });
+          }
+        });
+      }
+    },
+
+    data () {
+      return {
+        state: 'hide'
+      }
+    },
+
+    methods: {
+      login() {
+        var webAuth = new auth0.WebAuth({
+          clientID: 'aSX04KlTPtCsWcKIKSj-F7I8fXeXLGnM',
+          domain: 'department.auth0.com',
+          redirectUri: 'http://paperclub.local:8080',
+          responseType: 'token',
+          scope: 'openid profile'
+        });
+
+        var email = document.querySelector('.js-email').value
+        webAuth.passwordlessStart({
+          connection: 'email',
+          send: 'link',
+          email: email
+        }, function(err,res) {
+          if (err) {
+            alert('error sending email: '+ err.description);
+            return;
+          }
+          alert('Email sent!');
+        });
+      }
+    }
+  };
+</script>

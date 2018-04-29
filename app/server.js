@@ -12,7 +12,7 @@ const PORT = 8080;
 
 // this allows us to do e.g. `fetch('/api/blog-posts')` on the server
 global.fetch = (url, opts) => {
-	if (url[0] === '/') url = `http://localhost:${PORT}${url}`;
+	if (url[0] === '/') url = `https://paperclub.local:${PORT}${url}`;
 	return fetch(url, opts);
 };
 

@@ -6,6 +6,7 @@ body {
 	color: #333;
 }
 
+nav,
 main {
 	position: relative;
 	max-width: 56em;
@@ -42,4 +43,11 @@ code {
 	body {
 		font-size: 16px;
 	}
+}
+
+.hide {
+  display: none;
+}
+.show {
+  display: block;
 }

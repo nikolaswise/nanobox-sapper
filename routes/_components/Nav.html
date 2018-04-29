@@ -1,7 +1,14 @@
 <nav>
-	<a class='{{page === "home"  ? "is-active" : ""}}'  rel=prefetch href='/'>Index</a>
-
-	<a class='{{page === "page"  ? "is-active" : ""}}' rel=prefetch href='/page'>page</a>
-
-  <a href="/login" rel=prefetch>login</a>
+  <Login/>
 </nav>
+
+
+<script>
+  import Login from './Login.html';
+
+  export default {
+    components: {
+      Login
+    }
+  };
+</script>
