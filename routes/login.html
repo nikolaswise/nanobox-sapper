@@ -1,0 +1,41 @@
+<:Head>
+	<title>Login</title>
+  <script src="https://cdn.auth0.com/js/lock/11.3.0/lock.min.js"></script>
+
+</:Head>
+
+<Layout page='page'>
+	<h1>Login</h1>
+  <script type="text/javascript">
+   var lock = new Auth0LockPasswordless('aSX04KlTPtCsWcKIKSj-F7I8fXeXLGnM', 'department.auth0.com', {
+    passwordlessMethod: "link",              // Sets Lock to use magic link
+    auth: {
+      redirectUrl: 'http://localhost:8080/',
+      responseType: 'token id_token'
+    }
+  });
+
+  lock.on('authenticated', function(authResult) {
+     localStorage.setItem('id_token', authResult.idToken);
+     localStorage.setItem('access_token', authResult.accessToken);
+  });
+
+  function login(){
+    lock.show();
+  }
+</script>
+
+<a href="javascript:login()">Login</a>
+
+</Layout>
+
+<script>
+	import Layout from './_components/Layout.html';
+
+	export default {
+		components: {
+			Layout
+		},
+    preload({ params, query }) {}
+	};
+</script>
