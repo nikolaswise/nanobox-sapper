@@ -1,9 +1,28 @@
 <:Head>
-	<title>Sapper project template</title>
+	<title>Small Multiples</title>
 </:Head>
 
 <Layout page='home'>
-	<h1>Paper Club</h1>
+	<h1>Featured Work</h1>
+  <Featured featured={{featured}} />
+
+  <section>
+    <h2>What is Small Multiples</h2>
+    <p>Description of project. <a href="/concept">Learn more.</a></p>
+  </section>
+
+  <Newsletter />
+
+  <h2>Featured Objects</h2>
+  {{#each items as item}}
+    <ItemCard item={{item}}/>
+  {{/each}}
+
+  <section>
+    <h2>How it Works</h2>
+    <p>Explanation of process. <a href="/concept">Learn more.</a></p>
+  </section>
+
 </Layout>
 
 <style>
@@ -12,11 +31,29 @@
 
 <script>
 	import Layout from './_components/Layout.html';
+  import ItemCard from './_components/ItemCard.html';
+  import Featured from './_components/Featured.html';
+  import Newsletter from './_components/NEwsletter.html';
 
 	export default {
 		components: {
-			Layout
+			Layout,
+      ItemCard,
+      Featured,
+      Newsletter
 		},
+    data() {
+      return {
+        items: [
+          {title: 'Some Title'},
+          {title: 'Another Title'},
+          {title: 'Third Title'},
+        ],
+        featured: {
+          title: 'Featured Title'
+        }
+      }
+    },
     preload({ params, query }) {}
 	};
 </script>

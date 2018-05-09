@@ -1,7 +1,20 @@
 <nav>
+  <a href="/">Index</a>
+  <a href="/explore">Explore</a>
+  <a href="/concept">Concept</a>
+  <form action="search">
+    <input type="text" placeholder="search">
+    <button type="submit">Search</button>
+  </form>
   <Login/>
+  <a href="/cart">Cart</a>
 </nav>
 
+<style>
+  form {
+    display: inline-block;
+  }
+</style>
 
 <script>
   import Login from './Login.html';

@@ -1,0 +1,51 @@
+<:Head>
+  <title>Small Multiples | Order Page</title>
+</:Head>
+
+<Layout page='item-edit'>
+  <section>
+    <h1>{{item.title}}</h1>
+    <button>edit</button>
+    <p>Images <button>edit</button></p>
+    <p>artist <button>edit</button></p>
+    <p>price <button>edit</button></p>
+    <p>shipping <button>edit</button></p>
+    <p>description <button>edit</button></p>
+    <p>tags <button>edit</button></p>
+    <p>
+      <label>
+        <input type="checkbox">
+        available
+      </label>
+    </p>
+    <button>save</button>
+    <button>delete</button>
+  </section>
+
+  <AccountNav />
+</Layout>
+
+<style>
+
+</style>
+
+<script>
+  import Layout from '../../_components/Layout.html'
+  import AccountNav from '../../_components/AccountNav.html'
+
+  export default {
+    components: {
+      Layout,
+      AccountNav
+    },
+    data() {
+      return {
+        item: {
+          title: 'Some Title',
+          amount: '10'
+        },
+      }
+    },
+    preload({ params, query }) {}
+  };
+</script>

@@ -1,0 +1,48 @@
+<:Head>
+	<title>Small Multiples | Artist Page</title>
+</:Head>
+
+<Layout page='home'>
+  <section>
+    <h2>User Profile</h2>
+    <p>Image</p>
+    <p>Location</p>
+    <p>Description</p>
+  </section>
+
+  <h2>Items Purchased</h2>
+  {{#each items as item}}
+    <ItemCard item={{item}}/>
+  {{/each}}
+
+  <h2>Items Wishlisted</h2>
+  {{#each items as item}}
+    <ItemCard item={{item}}/>
+  {{/each}}
+
+</Layout>
+
+<style>
+
+</style>
+
+<script>
+	import Layout from '../_components/Layout.html'
+  import ItemCard from '../_components/ItemCard.html'
+	export default {
+		components: {
+      ItemCard,
+			Layout
+		},
+    data() {
+      return {
+        items: [
+          {title: 'Some Title'},
+          {title: 'Another Title'},
+          {title: 'Third Title'},
+        ]
+      }
+    },
+    preload({ params, query }) {}
+	};
+</script>

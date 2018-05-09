@@ -1,0 +1,25 @@
+<section>
+  <input type="text" placeholder="filter">
+  <p>
+    <input type="checkbox">
+    <button>Mark as Shipped</button>
+    <button>Issue Refund</button>
+  </p>
+
+  {{#each orders as order}}
+    <p>
+      <input type="checkbox">
+      <a href="/account/orders/id">
+        #{{order.number}}
+        date
+        customer
+        status
+        amount
+      </a>
+    </p>
+  {{/each }}
+</section>
+
+<style>
+
+</style>

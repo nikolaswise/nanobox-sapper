@@ -4,12 +4,22 @@
 	<slot></slot>
 </main>
 
+<Footer />
+
+<style>
+  :global(section) {
+    margin-bottom: 2rem;
+  }
+</style>
+
 <script>
 	import Nav from './Nav.html';
+  import Footer from './Footer.html';
 
 	export default {
 		components: {
-			Nav
+			Nav,
+      Footer
 		}
 	};
 </script>

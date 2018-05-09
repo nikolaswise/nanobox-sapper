@@ -1,0 +1,42 @@
+<:Head>
+  <title>Small Multiples | Order Page</title>
+</:Head>
+
+<Layout page='item-edit'>
+  <section>
+    <h1>New Card</h1>
+    <input type="text" placeholder="Nickname">
+    <p><input type="text" placeholder="number"></p>
+    <p><input type="text" placeholder="expiration"></p>
+    <p><input type="text" placeholder="ccv"></p>
+    <p><input type="text" placeholder="address"></p>
+    <button>submit</button>
+  </section>
+
+  <AccountNav />
+</Layout>
+
+<style>
+
+</style>
+
+<script>
+  import Layout from '../../_components/Layout.html'
+  import AccountNav from '../../_components/AccountNav.html'
+
+  export default {
+    components: {
+      Layout,
+      AccountNav
+    },
+    data() {
+      return {
+        item: {
+          title: 'Some Title',
+          amount: '10'
+        },
+      }
+    },
+    preload({ params, query }) {}
+  };
+</script>

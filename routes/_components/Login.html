@@ -1,6 +1,5 @@
 {{#if user}}
-  <p>{{user.nickname}}</p>
-  <button on:click="set({ state: show})">login</button>
+  <a href="/account/">{{user.nickname}}</a>
 {{else}}
   <button on:click="set({ state: show})">login</button>
 {{/if}}

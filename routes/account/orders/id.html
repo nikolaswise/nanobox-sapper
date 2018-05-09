@@ -1,0 +1,62 @@
+<:Head>
+  <title>Small Multiples | Order Page</title>
+</:Head>
+
+<Layout page='order'>
+  <section>
+    <h1>Order #{{order.number}}</h1>
+    <p>
+      status: {{order.shipped}}
+      <button>mark as shipped</button>
+      <button>print</button>
+    </p>
+  </section>
+
+  <section>
+    {{#each items as item }}
+      <p>
+        image
+        <a href="/items/id">{{item.title}}</a>
+        price
+      </p>
+    {{/each}}
+    <p>Subtotal</p>
+    <p>Taxes</p>
+    <p>Shipping</p>
+  </section>
+
+  <AccountNav />
+</Layout>
+
+<style>
+
+</style>
+
+<script>
+  import Layout from '../../_components/Layout.html'
+  import AccountNav from '../../_components/AccountNav.html'
+
+  export default {
+    components: {
+      Layout,
+      AccountNav
+    },
+    data() {
+      return {
+        order: {
+          number: '001',
+          amount: '10',
+          to: 'Some Buyer',
+          address: '123 Street',
+          shipped: false
+        },
+        items: [
+          {title: 'Some Title'},
+          {title: 'Another Title'},
+          {title: 'Third Title'},
+        ]
+      }
+    },
+    preload({ params, query }) {}
+  };
+</script>

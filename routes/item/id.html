@@ -1,0 +1,54 @@
+<:Head>
+	<title>Small Multiples | Item Page</title>
+</:Head>
+
+<Layout page='home'>
+  <section>
+    <h1>Images</h1>
+  </section>
+
+  <section>
+    <h2>Item Title</h2>
+    <p>
+      <a href="/artist/id">Artist</a>
+      <a href="/publisher/id">Publisher</a>
+    </p>
+    <p>Description</p>
+    <p>Dimensions</p>
+    <p>Edition Size</p>
+    <p>Price</p>
+    <a href="/item/id">Buy This</a>
+    <a href="/item/id">Wishlist This</a>
+  </section>
+
+  <h3>Other Items</h3>
+  {{#each items as item}}
+    <ItemCard item={{item}}/>
+  {{/each}}
+</Layout>
+
+<style>
+
+</style>
+
+<script>
+	import Layout from '../_components/Layout.html';
+  import ItemCard from '../_components/ItemCard.html';
+
+	export default {
+		components: {
+      ItemCard,
+			Layout
+		},
+    data() {
+      return {
+        items: [
+          {title: 'Some Title'},
+          {title: 'Another Title'},
+          {title: 'Third Title'},
+        ]
+      }
+    },
+    preload({ params, query }) {}
+	};
+</script>

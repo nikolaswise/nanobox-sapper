@@ -1,0 +1,26 @@
+<section>
+  <input type="text" placeholder="filter">
+  <p>
+    <input type="checkbox">
+    <button>Add Tags</button>
+    <button>Remove Tags</button>
+    <button>Make Available</button>
+    <button>Make Unavailable</button>
+    <button>Edit Price</button>
+    <button>Edit Shipping</button>
+    <button>Delete</button>
+  </p>
+  {{#each items as item}}
+    <p>
+      <input type="checkbox">
+      image
+      <a href="/account/items/edit">{{item.title}}</a>
+      quantity
+      price
+    </p>
+  {{/each }}
+</section>
+
+<style>
+
+</style>
